@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather & Wisdom - API Mashup</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>CoKo</h1>
+        <p class="subtitle">
+          Plan your day with current conditions and thoughtful advice
+        </p>
+      </header>
+
+      <!-- Location Input Section -->
+      <section class="input-section">
+        <label for="city-input">Enter a city:</label>
+        <div class="input-group">
+          <input
+            type="text"
+            id="city-input"
+            placeholder="San Francisco"
+            value="San Francisco"
+          />
+          <button id="fetch-btn">Get Weather & Advice</button>
+        </div>
+      </section>
+
+      <!-- Loading State -->
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>Fetching data...</p>
+      </div>
+
+      <!-- Error Display -->
+      <div id="error" class="error hidden"></div>
+
+      <!-- Data Display Section -->
+      <section id="data-display" class="data-display hidden">
+        <!-- Weather Card -->
+        <article class="card weather-card">
+          <h2>Current Weather</h2>
+          <div class="weather-content">
+            <div class="weather-icon" id="weather-icon">🌤️</div>
+            <div class="weather-details">
+              <p class="location" id="location">Loading...</p>
+              <p class="temperature" id="temperature">--°</p>
+              <p class="description" id="description">--</p>
+              <div class="weather-stats">
+                <span id="humidity">Humidity: --%</span>
+                <span id="wind">Wind: -- mph</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Advice Card -->
+        <article class="card advice-card">
+          <h2>Today's Advice</h2>
+          <div class="advice-content">
+            <blockquote id="advice-text">Loading wisdom...</blockquote>
+            <button id="new-advice-btn" class="secondary-btn">
+              Get New Advice
+            </button>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script type="module" src="javascript/script.js"></script>
+  </body>
+</html>
