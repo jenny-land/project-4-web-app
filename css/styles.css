@@ -303,3 +303,27 @@ blockquote::before {
         grid-template-columns: 1fr;
     }
 }
+
+/* ===== Dark Mode color theme ===== */
+body {
+    background: #0f0f0f; /* Remove gradient, use solid dark */
+    color: #ffffff;
+}
+
+.card {
+    background: #1a1a1a;
+    border: 1px solid #333;
+}
+
+.card h2 {
+    color: #6366f1;
+}
+
+/* Update all text colors for dark mode */
+.location, .temperature, blockquote {
+    color: #ffffff;
+}
+
+.description, .weather-stats {
+    color: #a0a0a0;
+}
