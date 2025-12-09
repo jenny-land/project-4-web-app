@@ -18,8 +18,8 @@ body {
 
 /* ===== Container ===== */
 .container {
-    max-width: 900px;
-    width: 100%;
+    max-width: 1220px;
+    width: 95%;
 }
 
 /* ===== Header ===== */
@@ -330,7 +330,10 @@ body {
     color: #a0a0a0;
 }
 
-
+/* Hide desktop section on mobile */
+.desktop-bottom-section {
+    display: none;
+}
 
 @media (min-width: 768px) {
     /* Hide mobile motivations */
@@ -347,10 +350,7 @@ body {
     }
 }
 
-/* Hide desktop section on mobile */
-.desktop-bottom-section {
-    display: none;
-}
+
 
 /*Task Form*/
 .task-form {

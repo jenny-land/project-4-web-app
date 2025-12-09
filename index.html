@@ -32,53 +32,51 @@
 
       <!-- Data Display Section -->
       <section id="data-display" class="data-display hidden"></section>
-    </main>
+      <!-- Motivations Section-->
+      <section class="motivations-section">
+        <ul class="motivations-list" id="motivations-list">
+          <!-- Populated by JS -->
+        </ul>
+      </section>
 
-    <!-- Motivations Section-->
-    <section class="motivations-section">
-      <ul class="motivations-list" id="motivations-list">
-        <!-- Populated by JS -->
-      </ul>
-    </section>
-
-    <!-- Desktop Layout-->
-    <div class="desktop-bottom-section">
-      <!-- Weather Card -->
-      <article class="card weather-card">
-        <h2>Current Weather</h2>
-        <div class="weather-content">
-          <div class="weather-icon" id="weather-icon">🌤️</div>
-          <div class="weather-details">
-            <p class="location" id="location">Loading...</p>
-            <p class="temperature" id="temperature">--°</p>
-            <p class="description" id="description">--</p>
-            <div class="weather-stats">
-              <span id="humidity">Humidity: --%</span>
-              <span id="wind">Wind: -- mph</span>
+      <!-- Desktop Layout-->
+      <div class="desktop-bottom-section">
+        <!-- Weather Card -->
+        <article class="card weather-card">
+          <h2>Current Weather</h2>
+          <div class="weather-content">
+            <div class="weather-icon" id="weather-icon">🌤️</div>
+            <div class="weather-details">
+              <p class="location" id="location">Loading...</p>
+              <p class="temperature" id="temperature">--°</p>
+              <p class="description" id="description">--</p>
+              <div class="weather-stats">
+                <span id="humidity">Humidity: --%</span>
+                <span id="wind">Wind: -- mph</span>
+              </div>
             </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <!-- Focus Task Form-->
-      <article class="card focus-section">
-        <h2>Focus</h2>
-        <form class="task-form" id="task-form">
-          <input
-            type="text"
-            class="task-input"
-            id="task-input"
-            placeholder="What's your main focus today?"
-            maxlength="100"
-          />
-          <button type="submit" class="add-task-btn">Add</button>
-        </form>
-        <div class="task-display" id="task-display">
-          <!-- Tasks will render here -->
-        </div>
-      </article>
+        <!-- Focus Task Form-->
+        <article class="card focus-section">
+          <h2>Focus</h2>
+          <form class="task-form" id="task-form">
+            <input
+              type="text"
+              class="task-input"
+              id="task-input"
+              placeholder="What's your main focus today?"
+              maxlength="100"
+            />
+            <button type="submit" class="add-task-btn">Add</button>
+          </form>
+          <div class="task-display" id="task-display">
+            <!-- Tasks will render here -->
+          </div>
+        </article>
 
-      <!-- Advice Card
+        <!-- Advice Card
       <article class="card advice-card">
         <h2>Today's Advice</h2>
         <div class="advice-content">
@@ -89,11 +87,12 @@
         </div>
       </article> -->
 
-      <!-- motivations desktop v)-->
-      <section class="motivations-desktop">
-        <ul class="motivations-list" id="motivations-list-desktop"></ul>
-      </section>
-    </div>
+        <!-- motivations desktop v)-->
+        <section class="motivations-desktop">
+          <ul class="motivations-list" id="motivations-list-desktop"></ul>
+        </section>
+      </div>
+    </main>
 
     <script type="module" src="javascript/script.js"></script>
   </body>
@@ -105,5 +104,5 @@
   why is dark mode left on
   why is display none on mobile on in desktop size
   make task element work
-  
+
   -->

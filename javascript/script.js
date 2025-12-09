@@ -309,7 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //Task Section
-//Add Task Function
+//"Add Task" Function
 function addTask(taskText) {
   const newTask = {
     id: Date.now(),
@@ -348,3 +348,36 @@ document.getElementById("task-form").addEventListener("submit", (e) => {
     input.value = "";
   }
 });
+
+//task checkbox
+function renderTasks() {
+  const display = document.getElementById("task-display");
+  display.innerHTML = "";
+
+  if (state.currentTask) {
+    const taskEl = document.createElement("div");
+    taskEl.className = "task-item";
+
+    const checkbox = document.createElement("div");
+    checkbox.className = "task-checkbox";
+    checkbox.textContent = state.currentTask.completed ? "☑" : "☐";
+    checkbox.addEventListener("click", () => toggleTask(state.currentTask.id));
+
+    const text = document.createElement("p");
+    text.className = "task-text";
+    if (state.currentTask.completed) text.classList.add("completed");
+    text.textContent = state.currentTask.text;
+
+    taskEl.appendChild(checkbox);
+    taskEl.appendChild(text);
+    display.appendChild(taskEl);
+  }
+}
+
+function toggleTask(taskId) {
+  if (state.currentTask && state.currentTask.id === taskId) {
+    state.currentTask.completed = !state.currentTask.completed;
+    saveToLocalStorage(STORAGE_KEYS.CURRENT_TASK, state.currentTask);
+    renderTasks();
+  }
+}
