@@ -6,7 +6,7 @@ const WEATHER_API_URL =
 const ADVICE_API_URL = "https://api.adviceslip.com/advice";
 
 // ===== DOM Elements =====
-const newAdviceBtn = document.getElementById("new-advice-btn");
+// const newAdviceBtn = document.getElementById("new-advice-btn");
 const loading = document.getElementById("loading");
 const error = document.getElementById("error");
 const dataDisplay = document.getElementById("data-display");
@@ -144,7 +144,7 @@ async function fetchAllData(city) {
 
     // Update the UI with the fetched data
     displayWeather(weatherData);
-    displayAdvice(adviceData);
+    // displayAdvice(adviceData);
 
     // Hide loading, show data
     hideLoading();
@@ -157,22 +157,22 @@ async function fetchAllData(city) {
 }
 
 // ===== WEATHER-ONLY FETCH (for when user just wants new advice) =====
-async function fetchNewAdvice() {
-  // Disable button during fetch
-  newAdviceBtn.disabled = true;
-  newAdviceBtn.textContent = "Loading...";
+// async function fetchNewAdvice() {
+//   // Disable button during fetch
+//   newAdviceBtn.disabled = true;
+//   newAdviceBtn.textContent = "Loading...";
 
-  try {
-    const adviceData = await fetchAdvice();
-    displayAdvice(adviceData);
-  } catch (err) {
-    showError("Failed to fetch new advice. Please try again.");
-  } finally {
-    // "finally" always runs, whether there was an error or not
-    newAdviceBtn.disabled = false;
-    newAdviceBtn.textContent = "Get New Advice";
-  }
-}
+//   try {
+//     const adviceData = await fetchAdvice();
+//     displayAdvice(adviceData);
+//   } catch (err) {
+//     showError("Failed to fetch new advice. Please try again.");
+//   } finally {
+//     // "finally" always runs, whether there was an error or not
+//     newAdviceBtn.disabled = false;
+//     newAdviceBtn.textContent = "Get New Advice";
+//   }
+// }
 
 // ===== UI DISPLAY FUNCTIONS =====
 
@@ -201,11 +201,11 @@ function displayWeather(data) {
  * Display advice in the UI
  * @param {Object} data - Advice API response object
  */
-function displayAdvice(data) {
-  // Advice Slip API response structure:
-  // data.slip.id, data.slip.advice
-  adviceText.textContent = data.slip.advice;
-}
+// function displayAdvice(data) {
+//   // Advice Slip API response structure:
+//   // data.slip.id, data.slip.advice
+//   adviceText.textContent = data.slip.advice;
+// }
 
 /**
  * Get appropriate emoji for weather condition
@@ -255,7 +255,7 @@ function hideError() {
 // ===== EVENT LISTENERS =====
 
 // New advice button
-newAdviceBtn.addEventListener("click", fetchNewAdvice);
+// newAdviceBtn.addEventListener("click", fetchNewAdvice);
 
 // ===== INITIAL LOAD =====
 // Automatically fetch data for San Francisco when page loads
@@ -323,20 +323,20 @@ function addTask(taskText) {
   renderTasks();
 }
 
-function renderTasks() {
-  const display = document.getElementById("task-display");
-  display.innerHTML = "";
+// function renderTasks() {
+//   const display = document.getElementById("task-display");
+//   display.innerHTML = "";
 
-  if (state.currentTask) {
-    const taskEl = document.createElement("div");
-    taskEl.className = "task-item";
-    taskEl.innerHTML = `
-            <div class="task-checkbox" data-id="${state.currentTask.id}">☐</div>
-            <p class="task-text">${state.currentTask.text}</p>
-        `;
-    display.appendChild(taskEl);
-  }
-}
+//   if (state.currentTask) {
+//     const taskEl = document.createElement("div");
+//     taskEl.className = "task-item";
+//     taskEl.innerHTML = `
+//             <div class="task-checkbox" data-id="${state.currentTask.id}">☐</div>
+//             <p class="task-text">${state.currentTask.text}</p>
+//         `;
+//     display.appendChild(taskEl);
+//   }
+// }
 
 // Event listener
 document.getElementById("task-form").addEventListener("submit", (e) => {
