@@ -51,6 +51,13 @@ header h1 {
     color: white;
 }
 
+/* ===== Date Section ===== */
+.current-date {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    display: block;
+}
+
 /* ===== Input Section ===== */
 .input-section {
     background: white;

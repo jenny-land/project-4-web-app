@@ -6,8 +6,8 @@ const WEATHER_API_URL = "https://api.weatherapi.com/v1/current.json";
 const ADVICE_API_URL = "https://api.adviceslip.com/advice";
 
 // ===== DOM Elements =====
-const cityInput = document.getElementById("city-input");
-const fetchBtn = document.getElementById("fetch-btn");
+// const cityInput = document.getElementById("city-input");
+// const fetchBtn = document.getElementById("fetch-btn");
 const newAdviceBtn = document.getElementById("new-advice-btn");
 const loading = document.getElementById("loading");
 const error = document.getElementById("error");
@@ -25,6 +25,16 @@ function updateClock() {
 }
 setInterval(updateClock, 1000);
 updateClock();
+
+// Date Display
+const now = new Date();
+const date = now.toLocaleDateString("en-US", {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+document.getElementById("current-date").textContent = date;
 
 // Weather elements
 const locationEl = document.getElementById("location");
@@ -231,23 +241,23 @@ function hideError() {
 // ===== EVENT LISTENERS =====
 
 // Main fetch button
-fetchBtn.addEventListener("click", () => {
-  const city = cityInput.value.trim();
+// fetchBtn.addEventListener("click", () => {
+//   const city = cityInput.value.trim();
 
-  if (!city) {
-    showError("Please enter a city name");
-    return;
-  }
+//   if (!city) {
+//     showError("Please enter a city name");
+//     return;
+//   }
 
-  fetchAllData(city);
-});
+//   fetchAllData(city);
+// });
 
 // Allow Enter key to trigger fetch
-cityInput.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") {
-    fetchBtn.click();
-  }
-});
+// cityInput.addEventListener("keypress", (e) => {
+//   if (e.key === "Enter") {
+//     fetchBtn.click();
+//   }
+// });
 
 // New advice button
 newAdviceBtn.addEventListener("click", fetchNewAdvice);
@@ -256,7 +266,7 @@ newAdviceBtn.addEventListener("click", fetchNewAdvice);
 // Automatically fetch data for San Francisco when page loads
 document.addEventListener("DOMContentLoaded", () => {
   // Check if API key is set
-  if (WEATHER_API_KEY === "YOUR_API_KEY_HERE") {
+  if (window.WEATHER_API_KEY === "YOUR_API_KEY_HERE") {
     showError("Please add your WeatherAPI.com API key to script.js");
     return;
   }
