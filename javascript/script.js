@@ -13,6 +13,19 @@ const loading = document.getElementById("loading");
 const error = document.getElementById("error");
 const dataDisplay = document.getElementById("data-display");
 
+// Clock Function (Time Section)
+function updateClock() {
+  const now = new Date();
+  const time = now.toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  });
+  document.getElementById("current-time").textContent = time;
+}
+setInterval(updateClock, 1000);
+updateClock();
+
 // Weather elements
 const locationEl = document.getElementById("location");
 const temperatureEl = document.getElementById("temperature");
