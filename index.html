@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather & Wisdom - API Mashup</title>
+ 
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
@@ -14,19 +14,8 @@
           Plan your day with current conditions and thoughtful advice
         </p>
       </header>
-
-      <!-- Location Input Section -->
-      <section class="input-section">
-        <label for="city-input">Enter a city:</label>
-        <div class="input-group">
-          <input
-            type="text"
-            id="city-input"
-            placeholder="San Francisco"
-            value="San Francisco"
-          />
-          <button id="fetch-btn">Get Weather & Advice</button>
-        </div>
+        
+     
       </section>
 
       <!-- Loading State -->
@@ -73,3 +62,11 @@
     <script type="module" src="javascript/script.js"></script>
   </body>
 </html>
+
+<!--Notes
+Remove weather input section (city selector)
+Remove "Get Weather & Advice" button
+Remove existing header/subtitle
+Keep only: container, weather/advice cards structure
+Test: Page loads without errors
+-->
