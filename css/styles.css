@@ -328,10 +328,7 @@ body {
     color: #a0a0a0;
 }
 
-/* Hide desktop section on mobile */
-.desktop-bottom-section {
-    display: none;
-}
+
 
 @media (min-width: 768px) {
     /* Hide mobile motivations */
@@ -348,3 +345,7 @@ body {
     }
 }
 
+/* Hide desktop section on mobile */
+.desktop-bottom-section {
+    display: none;
+}
