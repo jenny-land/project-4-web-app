@@ -22,19 +22,17 @@ function updateClock() {
     hour12: false,
   });
   document.getElementById("current-time").textContent = time;
+  // Date Display
+  const date = now.toLocaleDateString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  document.getElementById("current-date").textContent = date;
 }
 setInterval(updateClock, 1000);
 updateClock();
-
-// Date Display
-const now = new Date();
-const date = now.toLocaleDateString("en-US", {
-  weekday: "long",
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-});
-document.getElementById("current-date").textContent = date;
 
 // Weather elements
 const locationEl = document.getElementById("location");
@@ -266,7 +264,7 @@ newAdviceBtn.addEventListener("click", fetchNewAdvice);
 // Automatically fetch data for San Francisco when page loads
 document.addEventListener("DOMContentLoaded", () => {
   // Check if API key is set
-  if (window.WEATHER_API_KEY === "YOUR_API_KEY_HERE") {
+  if (WEATHER_API_KEY === "YOUR_API_KEY_HERE") {
     showError("Please add your WeatherAPI.com API key to script.js");
     return;
   }
