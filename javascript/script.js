@@ -39,6 +39,7 @@ function updateClock() {
     hour12: false,
   });
   document.getElementById("current-time").textContent = time;
+
   // Date Display
   const date = now.toLocaleDateString("en-US", {
     weekday: "long",
@@ -228,7 +229,7 @@ function getWeatherEmoji(condition) {
   return "🌤️"; // Default: partly cloudy
 }
 
-// ===== UI STATE MANAGEMENT =====
+// ===== UI state Managment =====
 function showLoading() {
   loading.classList.remove("hidden");
   dataDisplay.classList.add("hidden");
@@ -286,6 +287,19 @@ function saveToLocalStorage(key, value) {
     console.error("Error saving to localStorage:", err);
   }
 }
+// motivations (show motivations list in mobile view)
+function renderMotivations() {
+  const list = document.getElementById("motivations-list");
+  list.innerHTML = "";
+  state.motivations.forEach((motivation) => {
+    const li = document.createElement("li");
+    li.textContent = motivation;
+    list.appendChild(li);
+  });
+}
+
+// Call in DOMContentLoaded
+renderMotivations();
 
 // Call on page load
 document.addEventListener("DOMContentLoaded", () => {

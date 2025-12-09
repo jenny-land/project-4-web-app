@@ -58,6 +58,34 @@ header h1 {
     display: block;
 }
 
+/* ===== Motivations Section ===== */
+.motivations-section {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.motivations-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.motivations-list li {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.motivations-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #667eea;
+    font-size: 1.2rem;
+}
+
 /* ===== Input Section ===== */
 .input-section {
     background: white;
