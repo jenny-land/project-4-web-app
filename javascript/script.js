@@ -307,3 +307,44 @@ document.addEventListener("DOMContentLoaded", () => {
   updateClock();
   setInterval(updateClock, 1000);
 });
+
+//Task Section
+//Add Task Function
+function addTask(taskText) {
+  const newTask = {
+    id: Date.now(),
+    text: taskText,
+    completed: false,
+    timestamp: new Date().toISOString(),
+  };
+
+  state.currentTask = newTask;
+  saveToLocalStorage(STORAGE_KEYS.CURRENT_TASK, newTask);
+  renderTasks();
+}
+
+function renderTasks() {
+  const display = document.getElementById("task-display");
+  display.innerHTML = "";
+
+  if (state.currentTask) {
+    const taskEl = document.createElement("div");
+    taskEl.className = "task-item";
+    taskEl.innerHTML = `
+            <div class="task-checkbox" data-id="${state.currentTask.id}">☐</div>
+            <p class="task-text">${state.currentTask.text}</p>
+        `;
+    display.appendChild(taskEl);
+  }
+}
+
+// Event listener
+document.getElementById("task-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const input = document.getElementById("task-input");
+  const text = input.value.trim();
+  if (text) {
+    addTask(text);
+    input.value = "";
+  }
+});
