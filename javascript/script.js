@@ -14,6 +14,25 @@ const loading = document.getElementById("loading");
 const error = document.getElementById("error");
 const dataDisplay = document.getElementById("data-display");
 
+// ===== Persistance Layer =====
+const STORAGE_KEYS = {
+  TIMEZONE: "startpage_timezone",
+  CURRENT_TASK: "startpage_current_task",
+  COMPLETED_TASKS: "startpage_completed_tasks",
+  MOTIVATIONS: "startpage_motivations",
+};
+
+const state = {
+  timezone: null,
+  currentTask: null,
+  completedTasks: [],
+  motivations: [
+    "Build cool things",
+    "Learn something new",
+    "Create positive interactions",
+  ],
+};
+
 // Clock Function (Time Section)
 function updateClock() {
   const now = new Date();
@@ -270,4 +289,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Fetch initial data
   fetchAllData("San Francisco");
+});
+
+// Local Storage infastructure
+function loadFromLocalStorage() {
+  try {
+    const savedMotivations = localStorage.getItem(STORAGE_KEYS.MOTIVATIONS);
+    if (savedMotivations) {
+      state.motivations = JSON.parse(savedMotivations);
+    }
+  } catch (err) {
+    console.error("Error loading localStorage:", err);
+  }
+}
+
+function saveToLocalStorage(key, value) {
+  try {
+    if (typeof value === "object") {
+      localStorage.setItem(key, JSON.stringify(value));
+    } else {
+      localStorage.setItem(key, value);
+    }
+  } catch (err) {
+    console.error("Error saving to localStorage:", err);
+  }
+}
+
+// Call on page load
+document.addEventListener("DOMContentLoaded", () => {
+  loadFromLocalStorage();
+  updateClock();
+  setInterval(updateClock, 1000);
 });
