@@ -327,3 +327,24 @@ body {
 .description, .weather-stats {
     color: #a0a0a0;
 }
+
+/* Hide desktop section on mobile */
+.desktop-bottom-section {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    /* Hide mobile motivations */
+    .motivations-section {
+        display: none;
+    }
+    
+    /* Show desktop 3-column */
+    .desktop-bottom-section {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+}
+

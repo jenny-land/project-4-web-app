@@ -21,13 +21,6 @@
       <!-- Date Section -->
       <time class="current-date" id="current-date">Loading date...</time>
 
-      <!-- Motivations Section-->
-      <section class="motivations-section">
-        <ul class="motivations-list" id="motivations-list">
-          <!-- Populated by JS -->
-        </ul>
-      </section>
-
       <!-- Loading State -->
       <div id="loading" class="loading hidden">
         <div class="spinner"></div>
@@ -38,42 +31,56 @@
       <div id="error" class="error hidden"></div>
 
       <!-- Data Display Section -->
-      <section id="data-display" class="data-display hidden">
-        <!-- Weather Card -->
-        <article class="card weather-card">
-          <h2>Current Weather</h2>
-          <div class="weather-content">
-            <div class="weather-icon" id="weather-icon">🌤️</div>
-            <div class="weather-details">
-              <p class="location" id="location">Loading...</p>
-              <p class="temperature" id="temperature">--°</p>
-              <p class="description" id="description">--</p>
-              <div class="weather-stats">
-                <span id="humidity">Humidity: --%</span>
-                <span id="wind">Wind: -- mph</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Advice Card -->
-        <article class="card advice-card">
-          <h2>Today's Advice</h2>
-          <div class="advice-content">
-            <blockquote id="advice-text">Loading wisdom...</blockquote>
-            <button id="new-advice-btn" class="secondary-btn">
-              Get New Advice
-            </button>
-          </div>
-        </article>
-      </section>
+      <section id="data-display" class="data-display hidden"></section>
     </main>
+
+    <!-- Weather Card -->
+    <article class="card weather-card">
+      <h2>Current Weather</h2>
+      <div class="weather-content">
+        <div class="weather-icon" id="weather-icon">🌤️</div>
+        <div class="weather-details">
+          <p class="location" id="location">Loading...</p>
+          <p class="temperature" id="temperature">--°</p>
+          <p class="description" id="description">--</p>
+          <div class="weather-stats">
+            <span id="humidity">Humidity: --%</span>
+            <span id="wind">Wind: -- mph</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Motivations Section-->
+    <section class="motivations-section">
+      <ul class="motivations-list" id="motivations-list">
+        <!-- Populated by JS -->
+      </ul>
+    </section>
+
+    <!-- Desktop Layout-->
+    <div class="desktop-bottom-section">
+      <!-- Advice Card -->
+      <article class="card advice-card">
+        <h2>Today's Advice</h2>
+        <div class="advice-content">
+          <blockquote id="advice-text">Loading wisdom...</blockquote>
+          <button id="new-advice-btn" class="secondary-btn">
+            Get New Advice
+          </button>
+        </div>
+      </article>
+
+      <section class="motivations-desktop">
+        <ul class="motivations-list" id="motivations-list-desktop"></ul>
+      </section>
+    </div>
 
     <script type="module" src="javascript/script.js"></script>
   </body>
 </html>
 
 <!--Notes
-Add advice api back in- make it fuction again
-Be sure to add 
--->
+  Add advice api back in- make it fuction again
+  Be sure to add 
+  -->
