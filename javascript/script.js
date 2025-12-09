@@ -1,5 +1,4 @@
 // ===== API Configuration =====
-// const WEATHER_API_CONFIG = "";
 const WEATHER_API_URL =
   "https://c8b061f1-1fef-4c56-ab59-afffe7834ac3-00-38zmav078b4e0.kirk.replit.dev/get_weather";
 
@@ -7,8 +6,6 @@ const WEATHER_API_URL =
 const ADVICE_API_URL = "https://api.adviceslip.com/advice";
 
 // ===== DOM Elements =====
-// const cityInput = document.getElementById("city-input");
-// const fetchBtn = document.getElementById("fetch-btn");
 const newAdviceBtn = document.getElementById("new-advice-btn");
 const loading = document.getElementById("loading");
 const error = document.getElementById("error");
@@ -256,37 +253,12 @@ function hideError() {
 
 // ===== EVENT LISTENERS =====
 
-// Main fetch button
-// fetchBtn.addEventListener("click", () => {
-//   const city = cityInput.value.trim();
-
-//   if (!city) {
-//     showError("Please enter a city name");
-//     return;
-//   }
-
-//   fetchAllData(city);
-// });
-
-// Allow Enter key to trigger fetch
-// cityInput.addEventListener("keypress", (e) => {
-//   if (e.key === "Enter") {
-//     fetchBtn.click();
-//   }
-// });
-
 // New advice button
 newAdviceBtn.addEventListener("click", fetchNewAdvice);
 
 // ===== INITIAL LOAD =====
 // Automatically fetch data for San Francisco when page loads
 document.addEventListener("DOMContentLoaded", () => {
-  // Check if API key is set
-  // if (WEATHER_API_KEY === "YOUR_API_KEY_HERE") {
-  //   showError("Please add your WeatherAPI.com API key to script.js");
-  //   return;
-  // }
-
   // Fetch initial data
   fetchAllData("San Francisco");
 });
