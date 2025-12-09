@@ -371,3 +371,20 @@ body {
 .add-task-btn {
     padding: 0.75rem 1.5rem;
 }
+
+/*Task Item Checkbox*/
+.task-item {
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+
+.task-checkbox {
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.task-text.completed {
+    text-decoration: line-through;
+    color: #666;
+}
