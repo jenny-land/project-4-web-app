@@ -51,11 +51,32 @@ header h1 {
     color: white;
 }
 
+/* =====  Time Zone Selector Section ===== */
+.timezone-button {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.timezone-select {
+    position: absolute;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+}
+
 /* ===== Date Section ===== */
 .current-date {
     font-size: 1.25rem;
     color: rgba(255, 255, 255, 0.8);
     display: block;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 /* ===== Motivations Section ===== */
