@@ -201,6 +201,10 @@ function displayWeather(data) {
  * Display advice in the UI
  * @param {Object} data - Advice API response object
  */
+function displayAdvice(data) {
+  document.getElementById("advice-text").textContent = `"${data.slip.advice}"`;
+}
+
 // function displayAdvice(data) {
 //   // Advice Slip API response structure:
 //   // data.slip.id, data.slip.advice
@@ -452,3 +456,57 @@ if (!wasCompleted && state.currentTask.completed) {
   triggerConfetti();
   moveToHistory(state.currentTask);
 }
+
+// //Make Time Zone Selector work- change zone, clock updates (note 16)
+// function initializeTimezone() {
+//   if (!state.timezone) {
+//     state.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+//     saveToLocalStorage(STORAGE_KEYS.TIMEZONE, state.timezone);
+//   }
+//   document.getElementById("timezone-select").value = state.timezone;
+//   updateTimezoneName();
+// }
+
+// function updateTimezoneName() {
+//   const select = document.getElementById("timezone-select");
+//   const selectedOption = select.options[select.selectedIndex];
+//   document.getElementById("timezone-name").textContent = selectedOption.text;
+// }
+
+// function updateClock() {
+//   const now = new Date();
+//   const time = new Intl.DateTimeFormat("en-US", {
+//     timeZone: state.timezone,
+//     hour: "2-digit",
+//     minute: "2-digit",
+//     hour12: false,
+//   }).format(now);
+
+//   document.getElementById("current-time").textContent = time;
+
+//   const date = new Intl.DateTimeFormat("en-US", {
+//     timeZone: state.timezone,
+//     weekday: "long",
+//     year: "numeric",
+//     month: "long",
+//     day: "numeric",
+//   }).format(now);
+
+//   document.getElementById("current-date").textContent = date;
+// }
+
+// // Event listeners
+// document.getElementById("timezone-button").addEventListener("click", () => {
+//   document.getElementById("timezone-select").classList.toggle("hidden");
+// });
+
+// document.getElementById("timezone-select").addEventListener("change", (e) => {
+//   state.timezone = e.target.value;
+//   saveToLocalStorage(STORAGE_KEYS.TIMEZONE, state.timezone);
+//   updateTimezoneName();
+//   updateClock();
+//   e.target.classList.add("hidden");
+// });
+
+// // Call in DOMContentLoaded
+// initializeTimezone();
