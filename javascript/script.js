@@ -350,6 +350,7 @@ document.getElementById("task-form").addEventListener("submit", (e) => {
 });
 
 //task checkbox
+
 function renderTasks() {
   const display = document.getElementById("task-display");
   display.innerHTML = "";
@@ -373,6 +374,38 @@ function renderTasks() {
     display.appendChild(taskEl);
   }
 }
+
+// function renderTasks() {
+//   const display = document.getElementById("task-display");
+//   display.innerHTML = "";
+
+//   // Render current task
+//   if (state.currentTask) {
+//     // ... existing code ...
+
+//     // Add "Next task?" if completed
+//     if (state.currentTask.completed) {
+//       const prompt = document.createElement("p");
+//       prompt.className = "next-task-prompt";
+//       prompt.textContent = "Next task?";
+//       display.appendChild(prompt);
+//     }
+//   }
+
+//   // Render completed history
+//   state.completedTasks.forEach((task) => {
+//     const taskEl = document.createElement("div");
+//     taskEl.className = "task-item";
+//     taskEl.innerHTML = `
+//             <div class="task-checkbox">☑</div>
+//             <p class="task-text completed">${task.text}</p>
+//         `;
+//     display.appendChild(taskEl);
+//   });
+// }
+//^fix this version ^ asee note 14
+
+//-----
 
 // function toggleTask(taskId) {
 //   if (state.currentTask && state.currentTask.id === taskId) {

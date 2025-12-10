@@ -388,3 +388,12 @@ body {
     text-decoration: line-through;
     color: #666;
 }
+
+/*render task history*/
+.next-task-prompt {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    font-style: italic;
+    margin: 0.5rem 0 1rem 2rem;
+}
