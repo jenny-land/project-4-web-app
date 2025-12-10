@@ -374,26 +374,25 @@ function renderTasks() {
   }
 }
 
+// function toggleTask(taskId) {
+//   if (state.currentTask && state.currentTask.id === taskId) {
+//     state.currentTask.completed = !state.currentTask.completed;
+//     saveToLocalStorage(STORAGE_KEYS.CURRENT_TASK, state.currentTask);
+//     renderTasks();
+//   }
+
 function toggleTask(taskId) {
   if (state.currentTask && state.currentTask.id === taskId) {
+    const wasCompleted = state.currentTask.completed;
     state.currentTask.completed = !state.currentTask.completed;
+
+    if (!wasCompleted && state.currentTask.completed) {
+      // Just became completed!
+      triggerConfetti();
+    }
+
     saveToLocalStorage(STORAGE_KEYS.CURRENT_TASK, state.currentTask);
     renderTasks();
-  }
-  
-  // function toggleTask(taskId) {
-  //   if (state.currentTask && state.currentTask.id === taskId) {
-  //     const wasCompleted = state.currentTask.completed;
-  //     state.currentTask.completed = !state.currentTask.completed;
-
-  //     if (!wasCompleted && state.currentTask.completed) {
-  //       // Just became completed!
-  //       triggerConfetti();
-  //     }
-
-  //     saveToLocalStorage(STORAGE_KEYS.CURRENT_TASK, state.currentTask);
-  //     renderTasks();
-  //   }
   }
 }
 
@@ -406,4 +405,17 @@ function triggerConfetti() {
       origin: { y: 0.6 },
     });
   }
+}
+
+//task history array
+function moveToHistory(task) {
+  state.completedTasks.unshift(task);
+  state.completedTasks = state.completedTasks.slice(0, 3);
+  saveToLocalStorage(STORAGE_KEYS.COMPLETED_TASKS, state.completedTasks);
+}
+
+// Update toggleTask to move to history when completed
+if (!wasCompleted && state.currentTask.completed) {
+  triggerConfetti();
+  moveToHistory(state.currentTask);
 }
