@@ -380,4 +380,30 @@ function toggleTask(taskId) {
     saveToLocalStorage(STORAGE_KEYS.CURRENT_TASK, state.currentTask);
     renderTasks();
   }
+  
+  // function toggleTask(taskId) {
+  //   if (state.currentTask && state.currentTask.id === taskId) {
+  //     const wasCompleted = state.currentTask.completed;
+  //     state.currentTask.completed = !state.currentTask.completed;
+
+  //     if (!wasCompleted && state.currentTask.completed) {
+  //       // Just became completed!
+  //       triggerConfetti();
+  //     }
+
+  //     saveToLocalStorage(STORAGE_KEYS.CURRENT_TASK, state.currentTask);
+  //     renderTasks();
+  //   }
+  }
+}
+
+//confetti function
+function triggerConfetti() {
+  if (typeof confetti !== "undefined") {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
+  }
 }
