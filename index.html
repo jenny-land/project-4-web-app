@@ -70,12 +70,6 @@
 
       <!-- Data Display Section -->
       <section id="data-display" class="data-display hidden"></section>
-      <!-- Motivations Section-->
-      <section class="motivations-section">
-        <ul class="motivations-list" id="motivations-list">
-          <!-- Populated by JS -->
-        </ul>
-      </section>
 
       <!-- Desktop Layout-->
       <div class="desktop-bottom-section">
@@ -114,12 +108,38 @@
           </div>
         </article>
 
+        <!-- Motivations Section-->
+        <section class="card motivations-section">
+          <ul class="motivations-list" id="motivations-list">
+            <!-- Populated by JS -->
+          </ul>
+          <!-- edit button to motivations section -->
+          <button class="edit-motivations-btn" id="edit-motivations-btn">
+            ✏️ Edit
+          </button>
+        </section>
+
         <!-- motivations desktop v)-->
         <section class="motivations-desktop">
           <ul class="motivations-list" id="motivations-list-desktop"></ul>
         </section>
       </div>
     </main>
+
+    <dialog class="modal" id="motivations-modal">
+      <div class="modal-content">
+        <h2>Edit Your Motivations</h2>
+        <p class="modal-description">Keep them short (3-5 words each)</p>
+        <div class="motivations-editor" id="motivations-editor"></div>
+        <div class="modal-actions">
+          <button class="btn-secondary" id="add-motivation-btn">
+            + Add Another
+          </button>
+          <button class="btn-primary" id="save-motivations-btn">Save</button>
+          <button class="btn-text" id="cancel-motivations-btn">Cancel</button>
+        </div>
+      </div>
+    </dialog>
 
     <script type="module" src="javascript/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
@@ -138,5 +158,6 @@
   Show and fix motivations
   fix task history next task font and use and double listing
   combine all media queries
-  
+  unhide at larger sceen and add to bottom panel in desktop view
+
   -->
