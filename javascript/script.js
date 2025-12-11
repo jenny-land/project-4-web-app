@@ -281,6 +281,7 @@ function loadFromLocalStorage() {
 }
 
 function saveToLocalStorage(key, value) {
+  console.log("saveToLocalStorage", key, value);
   try {
     if (typeof value === "object") {
       localStorage.setItem(key, JSON.stringify(value));
@@ -323,6 +324,7 @@ function addTask(taskText) {
   };
 
   state.currentTask = newTask;
+  console.log("inside add task");
   saveToLocalStorage(STORAGE_KEYS.CURRENT_TASK, newTask);
   renderTasks();
 }
@@ -376,7 +378,26 @@ function renderTasks() {
     taskEl.appendChild(checkbox);
     taskEl.appendChild(text);
     display.appendChild(taskEl);
+
+    // updated render task
+    if (state.currentTask.completed) {
+      const prompt = document.createElement("p");
+      prompt.className = "next-task-prompt";
+      prompt.textContent = "Next task?";
+      display.appendChild(prompt);
+    }
   }
+
+  // Render completed history
+  state.completedTasks.forEach((task) => {
+    const taskEl = document.createElement("div");
+    taskEl.className = "task-item";
+    taskEl.innerHTML = `
+            <div class="task-checkbox">☑</div>
+            <p class="task-text completed">${task.text}</p>
+        `;
+    display.appendChild(taskEl);
+  });
 }
 
 // function renderTasks() {
@@ -426,6 +447,7 @@ function toggleTask(taskId) {
     if (!wasCompleted && state.currentTask.completed) {
       // Just became completed!
       triggerConfetti();
+      moveToHistory(state.currentTask);
     }
 
     saveToLocalStorage(STORAGE_KEYS.CURRENT_TASK, state.currentTask);
@@ -448,14 +470,15 @@ function triggerConfetti() {
 function moveToHistory(task) {
   state.completedTasks.unshift(task);
   state.completedTasks = state.completedTasks.slice(0, 3);
+  console.log("aboutosavetolocalstorage");
   saveToLocalStorage(STORAGE_KEYS.COMPLETED_TASKS, state.completedTasks);
 }
 
-// Update toggleTask to move to history when completed
-if (!wasCompleted && state.currentTask.completed) {
-  triggerConfetti();
-  moveToHistory(state.currentTask);
-}
+// // Update toggleTask to move to history when completed
+// if (!wasCompleted && state.currentTask.completed) {
+//   triggerConfetti();
+//   moveToHistory(state.currentTask);
+// }
 
 // //Make Time Zone Selector work- change zone, clock updates (note 16)
 // function initializeTimezone() {
