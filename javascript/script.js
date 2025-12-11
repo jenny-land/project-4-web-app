@@ -480,21 +480,21 @@ function moveToHistory(task) {
 //   moveToHistory(state.currentTask);
 // }
 
-// //Make Time Zone Selector work- change zone, clock updates (note 16)
-// function initializeTimezone() {
-//   if (!state.timezone) {
-//     state.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-//     saveToLocalStorage(STORAGE_KEYS.TIMEZONE, state.timezone);
-//   }
-//   document.getElementById("timezone-select").value = state.timezone;
-//   updateTimezoneName();
-// }
+//Make Time Zone Selector work- change zone, clock updates (note 16)
+function initializeTimezone() {
+  if (!state.timezone) {
+    state.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    saveToLocalStorage(STORAGE_KEYS.TIMEZONE, state.timezone);
+  }
+  document.getElementById("timezone-select").value = state.timezone;
+  updateTimezoneName();
+}
 
-// function updateTimezoneName() {
-//   const select = document.getElementById("timezone-select");
-//   const selectedOption = select.options[select.selectedIndex];
-//   document.getElementById("timezone-name").textContent = selectedOption.text;
-// }
+function updateTimezoneName() {
+  const select = document.getElementById("timezone-select");
+  const selectedOption = select.options[select.selectedIndex];
+  document.getElementById("timezone-name").textContent = selectedOption.text;
+}
 
 // function updateClock() {
 //   const now = new Date();
@@ -518,18 +518,18 @@ function moveToHistory(task) {
 //   document.getElementById("current-date").textContent = date;
 // }
 
-// // Event listeners
-// document.getElementById("timezone-button").addEventListener("click", () => {
-//   document.getElementById("timezone-select").classList.toggle("hidden");
-// });
+// Event listeners
+document.getElementById("timezone-button").addEventListener("click", () => {
+  document.getElementById("timezone-select").classList.toggle("hidden");
+});
 
-// document.getElementById("timezone-select").addEventListener("change", (e) => {
-//   state.timezone = e.target.value;
-//   saveToLocalStorage(STORAGE_KEYS.TIMEZONE, state.timezone);
-//   updateTimezoneName();
-//   updateClock();
-//   e.target.classList.add("hidden");
-// });
+document.getElementById("timezone-select").addEventListener("change", (e) => {
+  state.timezone = e.target.value;
+  saveToLocalStorage(STORAGE_KEYS.TIMEZONE, state.timezone);
+  updateTimezoneName();
+  updateClock();
+  e.target.classList.add("hidden");
+});
 
-// // Call in DOMContentLoaded
-// initializeTimezone();
+// Call in DOMContentLoaded
+initializeTimezone();
