@@ -144,7 +144,7 @@ async function fetchAllData(city) {
 
     // Update the UI with the fetched data
     displayWeather(weatherData);
-    // displayAdvice(adviceData);
+    displayAdvice(adviceData);
 
     // Hide loading, show data
     hideLoading();
