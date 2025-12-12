@@ -120,13 +120,6 @@ function initializeTimezone() {
     saveToLocalStorage(STORAGE_KEYS.TIMEZONE, state.timezone);
   }
   document.getElementById("timezone-select").value = state.timezone;
-  updateTimezoneName();
-}
-
-function updateTimezoneName() {
-  const select = document.getElementById("timezone-select");
-  const selectedOption = select.options[select.selectedIndex];
-  document.getElementById("timezone-name").textContent = selectedOption.text;
 }
 
 // ===== WEATHER API FUNCTION =====
@@ -372,11 +365,6 @@ document.getElementById("task-form").addEventListener("submit", (e) => {
     addTask(text);
     input.value = "";
   }
-});
-
-// Timezone button - toggle dropdown
-document.getElementById("timezone-button").addEventListener("click", () => {
-  document.getElementById("timezone-select").classList.toggle("hidden");
 });
 
 // Timezone select - change timezone
