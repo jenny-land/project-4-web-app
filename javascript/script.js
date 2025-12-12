@@ -300,33 +300,27 @@ function renderTasks() {
 
     const text = document.createElement("p");
     text.className = "task-text";
-    if (state.currentTask.completed) text.classList.add("completed");
+    if (state.currentTask.completed) {
+      taskEl.classList.add("completed");
+    }
     text.textContent = state.currentTask.text;
 
     taskEl.appendChild(checkbox);
     taskEl.appendChild(text);
     display.appendChild(taskEl);
-
-    // Show "Next task?" prompt if completed
-    if (state.currentTask.completed) {
-      const prompt = document.createElement("p");
-      prompt.className = "next-task-prompt";
-      prompt.textContent = "Next task?";
-      display.appendChild(prompt);
-    }
   }
 
   // Render completed history
   state.completedTasks.forEach((task) => {
     const taskEl = document.createElement("div");
-    taskEl.className = "task-item";
+    taskEl.className = "task-item completed";
 
     const checkbox = document.createElement("div");
     checkbox.className = "task-checkbox";
     checkbox.textContent = "☑";
 
     const text = document.createElement("p");
-    text.className = "task-text completed";
+    text.className = "task-text";
     text.textContent = task.text;
 
     taskEl.appendChild(checkbox);
